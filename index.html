@@ -10,21 +10,28 @@
 <body>
 
     <div id="app">
-        {{name}}
+        {{ nextYear("hi ") }}
     </div>
-
 
 
     <script>
         new Vue({
             el: "#app",
             data: {
-                name:"my name is coder"
+                person: {
+                    name:"coder",
+                    age: 50,
+                }
+            },
+            methods: {
+                nextYear(greeting) {
+                    return greeting + this.person.name + ' is '  + (this.person.age + 1) + " hehe"
+                },
+                otherMethod() {
+                    this.nextYear();
+                }
             }
         })
     </script> 
-
-
-
 </body>
 </html>
