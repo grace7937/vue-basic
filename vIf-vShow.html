@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>v-if</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+
+
+    <div id="if">
+
+
+<!--여러개-->
+        <template v-if="display" >
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+        </template>                                          <!--아래처럼 하면 한개씩이고 3개의 화면을 보여주고 싶다면? 이렇게!-->
+        <div v-else>Display false</div>
+
+
+       
+<!--한개 기본-->
+      <div v-if="show === 1">Display true 1111</div>                     <!--조건문 의 값이 ture 면 display on이된다-->
+      <div v-else-if="show === 2">2222</div>                                
+      <div v-else>333</div>
+
+
+
+      <button @click="clickBtn">btn</button>
+
+
+<!-- v-show 도 v-if처럼 쓸수 있지만 다른점은 v-show는 렌더린은 되고 display:none 옵션이다. v-if는 아예 렌더링이 되지 않는다. 그렇기에 display가 매우 자주 바뀌는 것은 v-show , 그렇지 않다면 v-if권장 -->
+
+
+    </div>
+
+    <script>
+      new Vue({
+        el: "#if",
+        data: {
+          show: 1,
+          display: false,
+        },
+        methods: {
+            clickBtn() {
+                this.show++;
+                this.display = !this.display;
+            }
+        }
+      });
+    </script>
+
+
+
+  </body>
+</html>
