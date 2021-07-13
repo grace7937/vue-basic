@@ -12,14 +12,23 @@
     <div id="app">
         {{ nextYear("hi ") }}
         <input  :type="type" v-bind:value="inputData">       <!-- v-bind 는 생략하고 : 만 넣어도 됨--> 
+        <button v-on:click="plus"></button>
+        <button v-on:click="minus"></button>
+        <div>  {{year}}</div>
+
+        <form v-on:submit.prevent="submitText">
+            <input type="text"><br>
+            <button type="submit">submit</button>
+        </form>
+
+
+
     </div>
-
     <script>
-
-
         new Vue({
             el: "#app",
             data: {
+                year: 2020,
                 person: {
                     name:"coder",
                     age: 50,
@@ -33,11 +42,21 @@
                 },
                 otherMethod() {
                     this.nextYear();
+                },
+                handleClickBtn() {
+                    console.log("click")
+                },
+                plus() {
+                    this.year ++;
+                },
+                minus() {
+                    this.year --;
+                },
+                submitText() {
+                    
                 }
             }
         })
-
-
     </script> 
 </body>
 </html>
