@@ -16,18 +16,24 @@
         <button v-on:click="minus"></button>
         <div>  {{year}}</div>
 
+
+        <br>
+        <br>
+
+
         <form v-on:submit.prevent="submitText">
-            <input type="text"><br>
+            <!-- <input type="text" :value="textData" @keyup="updateText"><br>     v-on: 은 @로 대체 가능  -->
+            <input type="text" v-model="textData"><br>        <!-- v-model을 이용하여 양방향 데이터 바인딩이 가능-->
+            <div>{{textData}}</div>
             <button type="submit">submit</button>
         </form>
 
-
-
     </div>
     <script>
-        new Vue({
+        new Vue({                                        // 상태값 입력
             el: "#app",
             data: {
+                textData: "this is text",
                 year: 2020,
                 person: {
                     name:"coder",
@@ -35,8 +41,8 @@
                 },
                 inputData: 'hello',
                 type: 'text'
-            },
-            methods: {
+            },                                            
+            methods: {                                    // 함수 입력
                 nextYear(greeting) {
                     return greeting + this.person.name + ' is '  + (this.person.age + 1) + " hehe"
                 },
@@ -54,7 +60,11 @@
                 },
                 submitText() {
                     
-                }
+                },
+                // updateText() {
+                //     this.textData = event.target.value;
+                // }
+
             }
         })
     </script> 
