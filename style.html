@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue computed</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      .text {
+        color: red;
+      }
+      .bold {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="style">
+      <div :class="{text : isRed, bold: isBold }">apple</div>
+      <div :style="{color : red, fontSize: size }">apple</div>    <!--styl binding 방법-->
+      <button @click="handleRedBtnClick">changeBtn</button>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#style",
+        data: {
+          red: "red",
+          size: "30px",
+          isRed: false,
+          isBold: false,
+        },
+
+        methods: {
+          handleRedBtnClick() {
+            this.isRed = !this.isRed;
+            this.isBold = !this.isBold;
+            this.red = "blue",
+            this.size = "50px"
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
