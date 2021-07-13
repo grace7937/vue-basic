@@ -11,17 +11,21 @@
 
     <div id="app">
         {{ nextYear("hi ") }}
+        <input  :type="type" v-bind:value="inputData">       <!-- v-bind 는 생략하고 : 만 넣어도 됨--> 
     </div>
 
-
     <script>
+
+
         new Vue({
             el: "#app",
             data: {
                 person: {
                     name:"coder",
                     age: 50,
-                }
+                },
+                inputData: 'hello',
+                type: 'text'
             },
             methods: {
                 nextYear(greeting) {
@@ -32,6 +36,8 @@
                 }
             }
         })
+
+
     </script> 
 </body>
 </html>
