@@ -20,6 +20,11 @@
         <br>
         <br>
 
+        <div>{{number + 1}}</div>
+
+        <br>
+        <br>
+
 
         <form v-on:submit.prevent="submitText">
             <!-- <input type="text" :value="textData" @keyup="updateText"><br>     v-on: 은 @로 대체 가능  -->
@@ -33,6 +38,7 @@
         new Vue({                                        // 상태값 입력
             el: "#app",
             data: {
+                number: 1,
                 textData: "this is text",
                 year: 2020,
                 person: {
@@ -64,7 +70,11 @@
                 // updateText() {
                 //     this.textData = event.target.value;
                 // }
-
+            },
+            computed: {
+                reversedMessage() {
+                    
+                }
             }
         })
     </script> 

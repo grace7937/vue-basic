@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue computed</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="computed">
+        {{ reversedMessage }} {{ reversedMessage }} {{ reversedMessage }}
+    
+    
+    
+        <button @click="changeMessage">click</button>
+    </div>  <!--method 안에 함수를 써주면 뒤에 ()를 붙여야하고, computed를 쓸때는 이미 캐싱이 되어있기 때문에 함수 이름만 쓰면된다.ex.reversedMessage-->
+
+    <script>
+      new Vue({
+        el: "#computed",
+        data: {
+          message: "hello",
+        },
+        methods: {
+            changeMessage() {
+                this.message = "apple";
+            }
+        },                                  
+        computed: {
+          reversedMessage() {
+            return this.message.split("").reverse().join("");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
