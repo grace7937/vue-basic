@@ -33,6 +33,12 @@
             return this.message.split("").reverse().join("");
           },
         },
+        watch: {                                              // watch는 값의 변경이 있을때 실행되는 함수 집함
+            message(newVal, oldVal) {                         // message라는 변수에 값이 변경이되면 message함수가 실행된다.  //인자로는 새로운값(newVal), 이전값(oldVal)가 온다.
+                console.log("this is new",newVal);
+                console.log("this is old",oldVal);
+            }
+        }
       });
     </script>
   </body>
