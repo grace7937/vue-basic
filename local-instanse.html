@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue computed</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      {{ name }}
+      <button @click="changeText"></button>
+    </div>
+    <div id="app-1">{{ name }}</div>
+
+    <script>
+      Vue.component("kkk-btn", {
+        template: `{{ name }} 
+       <button @click="changeText"> </button>`,
+
+        data: {
+          name: "kkk",
+          method: {
+            changeText() {
+              app1.name = "kkk update";
+            },
+          },
+        },
+      });
+
+      const app = new Vue({
+        el: "#app",
+        data: {
+          name: "kkk",
+          method: {
+            changeText() {
+              app1.name = "kkk update";
+            },
+          },
+        },
+      });
+
+      const app1 = new Vue({
+        el: "#app-1",
+        data: {
+          name: "ttt",
+          method: {
+            changeText() {
+              this.name = "ttt update";
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
