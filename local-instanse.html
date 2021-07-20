@@ -16,7 +16,7 @@
 
     <script>
       Vue.component("kkk-btn", {
-        template: `{{ name }} 
+        template: `{{ name }}
        <button @click="changeText"> </button>`,
 
         data: {
@@ -31,12 +31,14 @@
 
       const app = new Vue({
         el: "#app",
-        data: {
-          name: "kkk",
-          method: {
-            changeText() {
-              app1.name = "kkk update";
-            },
+        data() {
+          return {
+            name: "kkk",
+          };
+        },
+        method: {
+          changeText() {
+            app1.name = "kkk update";
           },
         },
       });
