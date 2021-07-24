@@ -16,8 +16,12 @@
 
     <script>
       Vue.component("kkk-btn", {
-        template: `{{ name }}
-       <button @click="changeText"> </button>`,
+        template: `
+        <div>
+        {{ name }}
+       <button @click="changeText"> </button>
+       <div>
+        `,
 
         data: {
           name: "kkk",
