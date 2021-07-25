@@ -15,12 +15,17 @@
     <div id="app-1">{{ name }}</div>
 
     <script>
+
+      Vue.component("ttttttt"), {                                    //이 컴포넌트를
+          template: '<div>hello</div>'
+      };
       Vue.component("kkk-btn", {
         template: `
         <div>
-        {{ name }}
-       <button @click="changeText"> </button>
-       <div>
+            {{ name }}
+            <ttttttt></ttttttt>                                     <!-- 이렇게 쓸수 있다. -->
+             <button @click="changeText"> </button>
+        <div>
         `,
 
         data: {
