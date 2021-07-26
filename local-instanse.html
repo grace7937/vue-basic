@@ -16,18 +16,7 @@
 
     <script>
 
-      Vue.component("ttttttt"), {                                    //이 컴포넌트를
-          template: '<div>hello</div>'
-      };
-      Vue.component("kkk-btn", {
-        template: `
-        <div>
-            {{ name }}
-            <ttttttt></ttttttt>                                     <!-- 이렇게 쓸수 있다. -->
-             <button @click="changeText"> </button>
-        <div>
-        `,
-
+      const ttttttt = new Vue({                           // 이랬던 컴포넌트를 아래의 vue.component("ttttttt")처럼 작성하여 전역으로 만들어준다.
         data: {
           name: "kkk",
           method: {
@@ -35,7 +24,30 @@
               app1.name = "kkk update";
             },
           },
-        },
+        }
+      })
+
+      Vue.component("ttttttt"), {                             //이 컴포넌트를 아래와같이
+          template: '<div>hello</div>'
+      };
+      Vue.component("kkk-btn", {
+        template: `
+        <div>
+            {{ name }}
+            <ttttttt></ttttttt>                               <!-- 이렇게 쓸수 있다. -->
+             <button @click="changeText"> </button>
+        <div>
+        `,
+  
+        data() {                                              // 이 부분들도 함수 처럼 바꿔줘야한다
+          return {name: "kkk",
+          method: {
+            changeText() {
+              app1.name = "kkk update";
+            },
+          },
+        }
+      }
       });
 
       const app = new Vue({

@@ -12,8 +12,9 @@
 
     <div id="style">
 
-        <div v-for="(person, index) in people" :key="person.id">                  
-            {{ name }}
+        <div v-for="(person, index) in people" :key="person.id">                      <!-- v-for를 여러거 화면에 보이기 여기서 person은 반복문돌떄 각각의 요소들(pre) 이고 people은 data안에 든 people 이다 -->
+            {{ person.name }} {{ person.age }} {{index}}        
+            <hr>
         </div>
 
     </div>
@@ -22,7 +23,12 @@
       new Vue({
         el: "#style",
         data: {
-            name : "kkk"
+          people: [                                                         // 배열뿐 아니라 객체도 v-for 을 쓸수 있다.
+              { id: 1, name : "a", age: 20 },
+              { id: 2, name : "a", age: 21 },
+              { id: 3, name : "a", age: 22 },
+              { id: 4, name : "a", age: 23 },
+              ]
         },
       });
     </script>
